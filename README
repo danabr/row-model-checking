@@ -1,0 +1,14 @@
+%% This projects implements a model of working with a read-your-own write
+%% key/value store, exploring how to deal with potential race conditions.
+%% The idea is to generate all possible orderings of two operation flows,
+%% and see if we can get a race condition or an inconsistent state.
+%% Below follows a list of operations and their semantics:
+%% get - Read object from the db. Stop flow on no object or siblings.
+%% get_check - Read object from the db. Stop on vclock mismatch or siblings.
+%% check - Check a precondition for continuing the flow.
+%% write - Write object to db. Crash on siblings.
+%% txn - Register side effect
+%% Investigate: Net splits
+%% Investigate: Report siblings
+%% Investigate: Update VClock on delete?
+
